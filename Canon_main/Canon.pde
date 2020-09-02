@@ -1,23 +1,23 @@
 //Kerem
 class Canon {
 
+  float a;
+
   Canon() {
-
-    float a = -atan2(height-mouseY, width-mouseX/2);
-
   }
-    void physics() {   
-      pushMatrix();
-      translate(0, height);
+  void physics() {   
+    float a = -atan2(height-mouseY, mouseX);
+    pushMatrix();
+    translate(0, height);
 
-      rotate(a);
+    rotate(a);
 
-      rectMode(CENTER);
+    rectMode(CENTER);
 
-      rect(0, 0, 50, 100);
-      popMatrix();
-    }
-  
+    rect(0, 0, 150, 30);
+    popMatrix();
+    rectMode(CORNER);
+  }
 }
 //rect der peger mod mus
 //instantiere en kanon når musen klikker

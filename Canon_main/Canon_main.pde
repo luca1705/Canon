@@ -11,6 +11,13 @@ void draw(){
   background(0);
   drawBG(); 
   ball.physics();
+  ball.boundaries();
   ball.display();
+ 
   
+}
+
+void mousePressed(){
+
+ball.clicked();
 }

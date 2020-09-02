@@ -12,7 +12,7 @@ class Ball {
 
   //Constructor der sætter nogle hastighedsværdier for bolden
   Ball() {
-    loc = new PVector(20, height-60);
+    loc = new PVector(width/2, height-60);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.3);
     d = 20;
@@ -21,6 +21,7 @@ class Ball {
   void physics() {
     loc.add(vel);
     vel.add(acc);
+    text(loc.y + "   " + height, width/2, height/2);
   }
 
   void boundaries() {
@@ -37,12 +38,7 @@ class Ball {
       vel.x*=-0.82;
     }
   }
-  
-  void Ground_hit(){
-  
-  angle = vel.heading();
-  
-  }
+ 
   void display() {
     ellipse(loc.x, loc.y, d, d);
   }

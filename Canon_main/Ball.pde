@@ -8,7 +8,7 @@ class Ball {
   PVector acc;
   float d;
   float angle;
-  
+
 
   //Constructor der sætter nogle hastighedsværdier for bolden
   Ball() {
@@ -28,20 +28,20 @@ class Ball {
       loc.y=height;
       vel.y*=-0.82;
     }
-/*    if (loc.x>width) {
-      loc.x = width;
-      vel.x*=-0.82;
-    }
-*/    if (loc.x<0) {
+    /*    if (loc.x>width) {
+     loc.x = width;
+     vel.x*=-0.82;
+     }
+     */    if (loc.x<0) {
       loc.x=0;
       vel.x*=-0.82;
     }
   }
- 
+
   void display() {
     ellipse(loc.x, loc.y, d, d);
   }
-  
+
   void clicked() {
     PVector click = new PVector(mouseX, height-mouseY);
     vel = click.div(1.5);

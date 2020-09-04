@@ -12,7 +12,7 @@ class Ball {
 
   //Constructor der sætter nogle hastighedsværdier for bolden
   Ball() {
-    loc = new PVector(0, height-5);
+    loc = new PVector(width*2, height-5);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.3);
     d = 20;
@@ -21,7 +21,6 @@ class Ball {
   void physics() {
     loc.add(vel);
     vel.add(acc);
-    text(loc.y + "   " + height, width/2, height/2);
   }
 
   void boundaries() {
@@ -29,12 +28,12 @@ class Ball {
       loc.y=height;
       vel.y*=-0.82;
     }
-    if (loc.x>width) {
+/*    if (loc.x>width) {
       loc.x = width;
       vel.x*=-0.82;
     }
-     if (loc.x<0) {
-       loc.x=0;
+*/    if (loc.x<0) {
+      loc.x=0;
       vel.x*=-0.82;
     }
   }
@@ -42,10 +41,12 @@ class Ball {
   void display() {
     ellipse(loc.x, loc.y, d, d);
   }
+  
   void clicked() {
-
-    PVector click = new PVector(mouseX, -mouseY);
-
-    vel.add((click.div(30)));
+    PVector click = new PVector(mouseX, height-mouseY);
+    vel = click.div(1.5);
+    vel.x=sqrt(vel.x);
+    vel.y=sqrt(vel.y);
+    loc = new PVector(0, height);
   }
 }

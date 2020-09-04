@@ -2,10 +2,13 @@
 //ArrayList<Float> ball = new ArrayList<Float>();
 Ball ball;
 Canon canon;
+Target t;
+
 void setup() {
   size(1000, 600);
   ball = new Ball();
   canon = new Canon();
+  t = new Target();
 }
 
 void draw() {
@@ -15,8 +18,11 @@ void draw() {
   ball.display();
   ball.boundaries();
   canon.physics();
+  t.display();
+  t.hitDetect();
 }
 
 void mousePressed() {
-  ball.clicked();
+  if (ball.loc.x > width)
+    ball.clicked();
 }

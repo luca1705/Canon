@@ -12,7 +12,7 @@ class Ball {
 
   //Constructor der sætter nogle hastighedsværdier for bolden
   Ball() {
-    loc = new PVector(width/2, height-60);
+    loc = new PVector(0, height-5);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.3);
     d = 20;
